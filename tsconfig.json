@@ -2,6 +2,20 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "paths": {
+      "@home": [
+        "src/app/Components/home/*"
+      ],
+      "@auth": [
+        "src/app/Components/auth/*"
+      ],
+      "@shared": [
+        "src/app/assets/*"
+      ],
+      "@env/*": [
+        "src/enviroments/*"
+      ]
+    },
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
