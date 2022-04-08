@@ -23,7 +23,7 @@ body {
     position: relative;
     width: 250px;
     height: 250px;
-    margin-top: -40px;
+    margin-top: -10px;
 }
 
 .ghost {
@@ -197,10 +197,10 @@ p {
 }
 
 .btn {
-    background: $white;
+    background: rgb(197, 197, 197);
     padding: 15px 20px;
     margin: 5px;
-    color: $dark;
+    color: black;
     font-family: $body;
     text-transform: uppercase;
     font-size: .6em;
