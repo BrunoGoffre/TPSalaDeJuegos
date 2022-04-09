@@ -1,0 +1,17 @@
+.carousel-inner {
+    border-radius: 0;
+    height: 50vh;
+    border-radius: 0;
+    object-fit: cover;
+
+    h2 {
+        font-weight: 400;
+        margin-bottom: 0.5em;
+        color: white;
+    }
+
+    .img {
+        position: absolute;
+        width: 100vw;
+    }
+}

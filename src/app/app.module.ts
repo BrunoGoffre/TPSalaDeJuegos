@@ -7,6 +7,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { AboutMeComponent } from './pages/about-me/about-me.component';
 import { ErrorComponent } from './pages/error/error.component';
+import { HeaderComponent } from './components/header/header.component';
+import { CarrouselComponent } from './components/carrousel/carrousel.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { ErrorComponent } from './pages/error/error.component';
     HomeComponent,
     LoginComponent,
     AboutMeComponent,
-    ErrorComponent
+    ErrorComponent,
+    HeaderComponent,
+    CarrouselComponent
   ],
   imports: [
     BrowserModule,
