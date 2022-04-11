@@ -9,6 +9,8 @@ import { AboutMeComponent } from './pages/about-me/about-me.component';
 import { ErrorComponent } from './pages/error/error.component';
 import { HeaderComponent } from './components/header/header.component';
 import { CarrouselComponent } from './components/carrousel/carrousel.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { GamesComponent } from './pages/games/games.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { CarrouselComponent } from './components/carrousel/carrousel.component';
     AboutMeComponent,
     ErrorComponent,
     HeaderComponent,
-    CarrouselComponent
+    CarrouselComponent,
+    FooterComponent,
+    GamesComponent
   ],
   imports: [
     BrowserModule,
