@@ -11,6 +11,12 @@ import { HeaderComponent } from './components/header/header.component';
 import { CarrouselComponent } from './components/carrousel/carrousel.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { GamesComponent } from './pages/games/games.component';
+import { RegisterComponent } from './pages/register/register.component';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAuth, getAuth } from '@angular/fire/auth';
+import { FormsModule } from "@angular/forms"
+import { AngularFireModule } from '@angular/fire/compat';
 
 @NgModule({
   declarations: [
@@ -22,11 +28,14 @@ import { GamesComponent } from './pages/games/games.component';
     HeaderComponent,
     CarrouselComponent,
     FooterComponent,
-    GamesComponent
+    GamesComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    AngularFireModule.initializeApp(environment.firebase),
   ],
   providers: [],
   bootstrap: [AppComponent]
