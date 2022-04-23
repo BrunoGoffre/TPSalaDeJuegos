@@ -22,5 +22,15 @@ export class LoginComponent implements OnInit {
       console.log("Inicio de session exitoso", res);
     });
   }
+  SingInWithGoogle() {
+    console.log(this.usuario);
+    this.auth.LoginWithGoogle(this.usuario.email, this.usuario.password).then((res) => {
+      if (res == null) {
+        console.log("Error", res);
+      } else {
+        console.log("Inicio de session exitoso", res);
+      }
+    });
+  }
 }
 

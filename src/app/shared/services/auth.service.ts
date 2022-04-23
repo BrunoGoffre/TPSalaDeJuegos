@@ -30,7 +30,7 @@ export class AuthService {
     try {
       return await this.afauth.signInWithEmailAndPassword(email, password);
     } catch (error) {
-      console.log("Error en register", error);
+      console.log("Error en login", error);
       return null;
     }
   }
@@ -39,7 +39,7 @@ export class AuthService {
     try {
       return await this.afauth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
     } catch (error) {
-      console.log("Error en register", error);
+      console.log("Error en login With Google", error);
       return null;
     }
   }

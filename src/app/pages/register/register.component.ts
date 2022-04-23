@@ -19,7 +19,12 @@ export class RegisterComponent implements OnInit {
   SingUp() {
     console.log(this.usuario);
     this.auth.Register(this.usuario.email, this.usuario.password).then((res) => {
-      console.log("Se Registro", res);
+      if (res == null) {
+        console.log(res);
+      }
+      else {
+        console.log("Se Registro", res);
+      }
     });
   }
 
