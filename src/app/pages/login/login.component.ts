@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Usuario } from 'src/app/models/usuario';
 import { AuthService } from 'src/app/shared/services/auth.service';
 
@@ -11,7 +12,7 @@ export class LoginComponent implements OnInit {
 
   usuario: Usuario = new Usuario("", "", "");
 
-  constructor(public auth: AuthService) { }
+  constructor(public auth: AuthService, public router: Router) { }
 
   ngOnInit(): void {
   }
@@ -29,6 +30,7 @@ export class LoginComponent implements OnInit {
         console.log("Error", res);
       } else {
         console.log("Inicio de session exitoso", res);
+        this.router.navigateByUrl('home');
       }
     });
   }

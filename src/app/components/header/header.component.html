@@ -14,31 +14,24 @@
                     <a class="nav-link" routerLink="/home">Inicio </a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" routerLink="/games">Juegos</a>
+                    <a class="nav-link" routerLink="/home/games">Juegos</a>
                 </li>
             </ul>
         </div>
-        <button class="navbar_btn btn btn-icon order-4  ml-3" routerLink="/login"> Sing in</button>
-        <button class="navbar_btn btn btn-icon order-4 ml-2" routerLink="/register">Sing up</button>
-        <button class="navbar_btn btn btn-icon order-4 ml-2" hidden="true">Log out</button>
+        <h3 class="display_UserName order-4 ml-3" *ngIf="(userLogged | async) != ''">{{(userLogged |
+            async)}}
+        </h3>
+        <button class="navbar_btn order-4 ml-2" *ngIf="(userLogged | async) != ''" (click)="SingOut()">
+            <span class="fa fa-sign-out"></span> Log out
+        </button>
+        <button class="navbar_btn btn btn-icon order-4  ml-3" *ngIf="(userLogged | async) == ''" routerLink="/login">
+            Sing in
+        </button>
+        <button class="navbar_btn btn btn-icon order-4 ml-2" *ngIf="(userLogged | async) == ''" routerLink="/register">
+            Sing up
+        </button>
+
     </div>
 </header>
-<!-- <nav class="site-header sticky-top py-1">
-    <div class="container d-flex flex-column flex-md-row justify-content-between">
-        <a class="py-2" [routerLink]="['/']" aria-label="Game Room">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
-                stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="d-block mx-auto" role="img"
-                viewBox="0 0 24 24" focusable="false">
-                <title>Game Room</title>
-                <circle cx="12" cy="12" r="10" />
-                <path
-                    d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94" />
-            </svg>
-        </a>
-        <a class="py-2 d-none d-md-inline-block" [routerLink]="['/Juegos']">Games</a>
-        <a class="py-2 d-none d-md-inline-block" [routerLink]="['/Listado']">Top</a>
-        <a class="py-2 d-none d-md-inline-block" [routerLink]="['/Jugadores']">Players</a>
-        <a class="py-2 d-none d-md-inline-block" [routerLink]="['/Login']">Login</a>
-        <a class="py-2 d-none d-md-inline-block">Log Out</a>
-    </div>
-</nav> -->
+<router-outlet></router-outlet>
+<app-footer></app-footer>

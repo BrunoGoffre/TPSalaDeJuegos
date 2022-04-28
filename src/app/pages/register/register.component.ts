@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "@angular/fire/auth";
 import { Usuario } from 'src/app/models/usuario';
 import { AuthService } from 'src/app/shared/services/auth.service';
 @Component({

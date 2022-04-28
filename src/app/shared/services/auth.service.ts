@@ -1,10 +1,13 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from "@angular/fire/compat/auth";
 import firebase from 'firebase/compat/app';
+import { BehaviorSubject, Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+
+  username: BehaviorSubject<string> = new BehaviorSubject("");
 
   constructor(private afauth: AngularFireAuth) { }
 
@@ -22,7 +25,7 @@ export class AuthService {
       return await this.afauth.createUserWithEmailAndPassword(email, password);
     } catch (error) {
       console.log("Error en register: ", error);
-      return null;
+      return error;
     }
   }
 
@@ -42,6 +45,14 @@ export class AuthService {
       console.log("Error en login With Google", error);
       return null;
     }
+  }
+
+  getLoggedUser() {
+    return this.afauth.authState;
+  }
+
+  logout() {
+    this.afauth.signOut();
   }
 
 }
