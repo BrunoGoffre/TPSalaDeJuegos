@@ -3,6 +3,7 @@
     height: 50vh;
     border-radius: 0;
     object-fit: cover;
+    cursor: pointer;
 
     h2 {
         font-weight: 400;
@@ -12,7 +13,10 @@
 
     .img {
         position: absolute;
-        width: 70vw;
         height: 450px;
     }
+}
+
+.carousel {
+    width: 100vw;
 }

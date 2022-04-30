@@ -30,8 +30,9 @@
         <button class="navbar_btn btn btn-icon order-4 ml-2" *ngIf="(userLogged | async) == ''" routerLink="/register">
             Sing up
         </button>
-
     </div>
 </header>
-<router-outlet></router-outlet>
+<div class="contenedor">
+    <router-outlet></router-outlet>
+</div>
 <app-footer></app-footer>
