@@ -17,6 +17,7 @@ import { environment } from '../environments/environment';
 import { provideAuth, getAuth } from '@angular/fire/auth';
 import { FormsModule } from "@angular/forms"
 import { AngularFireModule } from '@angular/fire/compat';
+import { ChatComponent } from './pages/chat/chat.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { AngularFireModule } from '@angular/fire/compat';
     CarrouselComponent,
     FooterComponent,
     GamesComponent,
-    RegisterComponent
+    RegisterComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,

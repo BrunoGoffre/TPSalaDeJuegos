@@ -2,6 +2,7 @@ import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
 import { AboutMeComponent } from './pages/about-me/about-me.component';
+import { ChatComponent } from './pages/chat/chat.component';
 import { ErrorComponent } from './pages/error/error.component';
 import { GamesComponent } from './pages/games/games.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -15,6 +16,7 @@ const routes: Routes = [
     path: 'home', component: HeaderComponent, children: [
       { path: '', component: HomeComponent },
       { path: 'games', component: GamesComponent },
+      { path: 'chat', component: ChatComponent }
     ]
   },
   { path: 'login', component: LoginComponent },
