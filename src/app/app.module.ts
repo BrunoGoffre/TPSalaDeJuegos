@@ -18,6 +18,7 @@ import { provideAuth, getAuth } from '@angular/fire/auth';
 import { FormsModule } from "@angular/forms"
 import { AngularFireModule } from '@angular/fire/compat';
 import { ChatComponent } from './pages/chat/chat.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { ChatComponent } from './pages/chat/chat.component';
     AppRoutingModule,
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
