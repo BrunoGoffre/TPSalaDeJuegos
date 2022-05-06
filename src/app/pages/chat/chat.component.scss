@@ -1,30 +1,30 @@
-body {
-    background: #E5DDD5 url("https://www.toptal.com/designers/subtlepatterns/patterns/sports.png") fixed;
-}
-
 .page-header {
     background: #006A4E;
     margin: 0;
     padding: 20px 0 10px;
     color: #FFFFFF;
-    position: fixed;
+    position: absolute;
     width: 100%;
     z-index: 1
 }
 
 .main {
-    height: 100vh;
-    padding-top: 70px;
+    height: 100%;
+    width: 100%;
+    background-image: url(../../../assets/Background.chat.jpg);
+    background-repeat: repeat;
 }
 
 .chat-log {
     padding: 40px 0 114px;
     height: auto;
     overflow: auto;
+    margin-top: 70px;
+    height: 75vh;
 }
 
 .chat-log__item {
-    background: #fafafa;
+    background: #9b9b9b;
     padding: 10px;
     margin: 0 auto 20px;
     max-width: 80%;
@@ -43,13 +43,23 @@ body {
 .chat-form {
     background: #DDDDDD;
     padding: 40px 0;
-    position: fixed;
+    position: absolute;
     bottom: 0;
     width: 100%;
 }
 
 .chat-log__author {
     margin: 0 auto .5em;
-    font-size: 14px;
+    font-size: 15px;
     font-weight: bold;
+}
+
+.chat-log__date {
+    align-items: right;
+    font-size: 12px;
+}
+
+.chat-log__message {
+    font-size: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }

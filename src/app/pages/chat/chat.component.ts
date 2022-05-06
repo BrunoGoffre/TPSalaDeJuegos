@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/shared/services/auth.service';
-import { HttpClient } from "@angular/common/http";
+import { Data, Router } from '@angular/router';
+import { DatabaseService } from 'src/app/shared/services/database.service';
+import { Mensaje } from 'src/app/models/mensaje';
 
 @Component({
   selector: 'app-chat',
@@ -10,38 +12,49 @@ import { HttpClient } from "@angular/common/http";
 })
 export class ChatComponent implements OnInit {
 
-
   username: Observable<string> | null;
-  message: string = "";
-  messages: Array<string> = [];
+  OldMessageUsername: any;
+  message: Mensaje;
+  messages: Array<Mensaje> = [];
+  horaMensajeViejo: string = "";
+  Date: Date = new Date();
 
-  constructor(public aFAuth: AuthService, private http: HttpClient) {
+  constructor(public aFAuth: AuthService, public router: Router, private aFStore: DatabaseService) {
     this.username = aFAuth.username;
+    this.message = new Mensaje("", "", "");
   }
 
   ngOnInit(): void {
-    // Pusher.logToConsole = true;
-
-    // var pusher = new Pusher('fd1e3270913261803b10', {
-    //   cluster: 'sa1'
-    // });
-
-    // var channel = pusher.subscribe('chat');
-    // channel.bind('message', data => {
-    //   this.messages.push(data);
-    // });
+    this.getMessage();
   }
 
   submit() {
-    // this.http.post('http://localhost:4200/api/messages', {
-    //   username: this.username,
-    //   message: this.message
-    // }).subscribe(() => this.message = '');
-    this.messages.push(this.message);
-    console.log(this.message);
-    this.message = "";
+    if (this.message.mensaje != "" && this.message != undefined) {
+
+      this.message.hora = this.Date.getHours() + ':' + this.Date.getMinutes()
+      this.message.usuario = this.aFAuth.username.value;
+      this.messages.push(this.message);
+
+      this.aFStore.setMessege({
+        hora: this.message.hora,
+        message: this.message.mensaje
+      })
+
+      console.log(this.message);
+      this.message = this.clearMesaje();
+    }
   }
 
+  getMessage() {
+    this.aFStore.getMessage().subscribe(data => {
+      console.log(data);
+      this.messages = data as Array<any>;
+    })
+  }
+
+  clearMesaje() {
+    return new Mensaje("", "", "");
+  }
 }
 
 

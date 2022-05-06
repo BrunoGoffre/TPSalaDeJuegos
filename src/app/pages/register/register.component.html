@@ -2,9 +2,6 @@
     <div class="cont_videoContainer">
         <video src="../../../assets/BackGroundImage-Login.mp4" autoplay loop></video>
     </div>
-    <div class="btn_volver">
-        <button routerLink="/home">Volver</button>
-    </div>
     <div class="demo">
         <div class="login">
             <div class="login__check"></div>
@@ -31,6 +28,8 @@
                 </div>
 
                 <button type="button" class="login__register" (click)="SingUp()">Sign up</button>
+                <p class="login__signup">Already Have an account?</p>
+                <a class="login__SignUpButton" routerLink="/login">Sign in</a>
             </div>
         </div>
     </div>
