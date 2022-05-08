@@ -18,6 +18,7 @@ export class ChatComponent implements OnInit {
   messages: Array<Mensaje> = [];
   horaMensajeViejo: string = "";
   Date: Date = new Date();
+  firsTime: boolean = true;
 
   constructor(public aFAuth: AuthService, public router: Router, private aFStore: DatabaseService) {
     this.username = aFAuth.username;
@@ -25,7 +26,7 @@ export class ChatComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getMessage();
+    this.getMessages();
   }
 
   submit() {
@@ -40,19 +41,21 @@ export class ChatComponent implements OnInit {
         message: this.message.mensaje
       })
 
-      console.log(this.message);
-      this.message = this.clearMesaje();
+      this.message = this.clearMesagge();
     }
   }
 
-  getMessage() {
+  getMessages() {
     this.aFStore.getMessage().subscribe(data => {
-      console.log(data);
-      this.messages = data as Array<any>;
+      if (this.firsTime == true) {
+        this.messages = data as Array<Mensaje>;
+        this.firsTime = false;
+        console.log(data);
+      }
     })
   }
 
-  clearMesaje() {
+  clearMesagge() {
     return new Mensaje("", "", "");
   }
 }

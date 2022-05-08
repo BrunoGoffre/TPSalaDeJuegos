@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, orderBy, query } from "firebase/firestore";
 import { AngularFirestore } from '@angular/fire/compat/firestore'
 import firebase from 'firebase/compat/app';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AuthService } from './auth.service';
-import { doc, getDoc } from "firebase/firestore";
 import { Mensaje } from 'src/app/models/mensaje';
 import { Usuario } from 'src/app/models/usuario';
 
@@ -13,18 +12,20 @@ import { Usuario } from 'src/app/models/usuario';
 })
 export class DatabaseService {
 
-  constructor(private aFStore: AngularFirestore, private aFAuth: AngularFireAuth, private AFAuthService: AuthService) { }
+
+  constructor(private aFStore: AngularFirestore, private aFAuth: AngularFireAuth, private AFAuthService: AuthService) {
+  }
 
   setMessege(message: any) {
     return this.aFStore.collection('ChatStorage').add({
+      ID: Date.now(),
       hora: message.hora,
       mensaje: message.message,
       usuario: this.AFAuthService.username.value
-
     })
   }
   getMessage() {
-    return this.aFStore.collection('ChatStorage').valueChanges();
+    return this.aFStore.collection('ChatStorage', ref => ref.orderBy('ID', 'asc')).valueChanges();
   }
 
   setUser(usuario: Usuario) {
@@ -37,6 +38,7 @@ export class DatabaseService {
 
   getUsers() {
     return this.aFStore.collection('UsersFromEmail').valueChanges();
+
   }
 }
 
