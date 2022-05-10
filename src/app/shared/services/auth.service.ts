@@ -19,10 +19,6 @@ export class AuthService {
 
   async Register(usuario: Usuario) {
     try {
-      if (usuario != null) {
-        //this.db.setUser(usuario);
-        this.username.next(usuario.username);
-      }
       return await this.afauth.createUserWithEmailAndPassword(usuario.email, usuario.password);
     } catch (error) {
       console.log("Error en register: ", error);
@@ -32,8 +28,6 @@ export class AuthService {
 
   async Login(usuario: Usuario) {
     try {
-      //Falta metodo en header para esto
-      this.username.next("UserName");
       return await this.afauth.signInWithEmailAndPassword(usuario.email, usuario.password);
     } catch (error) {
       console.log("Error en login", error);

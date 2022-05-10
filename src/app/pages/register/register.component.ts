@@ -10,8 +10,7 @@ import { DatabaseService } from 'src/app/shared/services/database.service';
 })
 export class RegisterComponent implements OnInit {
 
-  date: Date = new Date();
-  hoy: string = this.date.getDay() + '-' + this.date.getMonth() + '-' + this.date.getFullYear;
+  hoy: string = new Date().toLocaleString("en-US", { timeZone: 'America/Argentina/Buenos_Aires' });
   usuario: Usuario = new Usuario("", "", "", this.hoy);
 
   constructor(public auth: AuthService, private router: Router, private db: DatabaseService) { }
@@ -24,6 +23,7 @@ export class RegisterComponent implements OnInit {
       try {
         this.auth.Register(this.usuario).then(res => {
           if (res != null) {
+            this.auth.username.next(this.usuario.usuario);
             this.db.setUser(this.usuario);
             this.router.navigateByUrl("/home");
           }
@@ -36,7 +36,7 @@ export class RegisterComponent implements OnInit {
   }
 
   validate(usuario: Usuario) {
-    if (usuario.email != "" && usuario.username != "" && usuario.password && usuario.FechaCreacion != "") {
+    if (usuario.email != "" && usuario.usuario != "" && usuario.password && usuario.FechaCreacion != "") {
       return true;
     } else {
       return false;

@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { collection, addDoc, orderBy, query } from "firebase/firestore";
 import { AngularFirestore } from '@angular/fire/compat/firestore'
 import firebase from 'firebase/compat/app';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
@@ -38,7 +37,6 @@ export class DatabaseService {
 
   getUsers() {
     return this.aFStore.collection('UsersFromEmail').valueChanges();
-
   }
 }
 

@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { BehaviorSubject, observable, Observable } from 'rxjs';
 import { Usuario } from 'src/app/models/usuario';
 import { AuthService } from 'src/app/shared/services/auth.service';
+import { DatabaseService } from 'src/app/shared/services/database.service';
 
 @Component({
   selector: 'app-header',
@@ -15,25 +16,15 @@ export class HeaderComponent implements OnInit {
 
   userLogged: Observable<string> | null;
 
-  constructor(public aFAuth: AuthService, private router: Router) {
+  constructor(public aFAuth: AuthService, private router: Router, private aFStore: DatabaseService) {
     this.userLogged = this.aFAuth.username;
   }
 
   ngOnInit(): void {
-    this.getLoggedUser();
+
   }
 
-  getLoggedUser() {
-    this.aFAuth.getState().subscribe(res => {
-      if (res?.displayName) {
-        this.aFAuth.username.next(res.displayName);
-      } else if (res?.email) {
-        console.log("hay Usuario pero no tiene User (Todavia)");
-      } else {
-        console.log("no hay usuario registrado");
-      }
-    })
-  }
+
 
   SingOut() {
     this.aFAuth.logout();
