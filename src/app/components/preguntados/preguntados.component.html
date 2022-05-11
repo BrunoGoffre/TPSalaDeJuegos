@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="row text-center">
+        <div class="pregunta_container">
+            <div *ngIf="esperando == true">
+                <img src="../../../assets/loading-cargando.gif" alt="">
+            </div>
+            <div class="game_container" *ngIf="perdio == false; else CartelPerdio ">
+                <div class="pregunta" *ngIf="esperando == false">
+                    <div class="pregunta row">
+                        <p class="pregunta col-10">{{pregunta.question}}</p>
+                        <p class="col-2">{{Puntaje}}</p>
+                    </div>
+                    <div class="row">
+                        <div class="respuestas col-3 " *ngFor="let item of pregunta.incorrect_answers">
+                            <button class="btn btn-primary" value="{{item}}"
+                                (click)="isCorrect($event)">{{item}}</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <ng-template class="CartelPerdio" #CartelPerdio>
+                <h1>Perdiste!!</h1>
+                <h3>Puntaje: {{Puntaje}}</h3>
+                <button class="btn btn-secondary" (click)="IntentarOtraVez()">Intentar otra vez</button>
+            </ng-template>
+        </div>
+    </div>
+</div>

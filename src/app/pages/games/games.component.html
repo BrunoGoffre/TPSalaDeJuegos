@@ -1,22 +1,87 @@
 <div class="container">
     <div class="row">
         <div class="box col-4">
-            <button class="btn ">
+            <button class="btn" (click)="AbrirJuegoSeleccionado(1)" value="1">
                 <img class="img" src=".././../../assets/juego1.jpg" alt="ahorcado">
                 <label for="">Ahorcado</label>
             </button>
         </div>
         <div class="box col-4">
-            <button class="btn ">
+            <button class="btn" (click)="AbrirJuegoSeleccionado(2)" value="2">
                 <img class="img" src=".././../../assets/juego2.jpg" alt="mayor-menor">
                 <label for="">Mayor-menor</label>
             </button>
         </div>
         <div class="box col-4">
-            <button class="btn ">
+            <button class="btn" (click)="AbrirJuegoSeleccionado(3)" value="3">
                 <img class="img" src=".././../../assets/juego3.jpg" alt="preguntados">
                 <label for="">Preguntados</label>
             </button>
+        </div>
+    </div>
+    <div class="games row" *ngIf="this.juegoSeleccionado == 1 ">
+        <div class="col-8">
+            <div class="row" *ngIf="empiezaAJugar == false">
+                <h1 class="mb-4">Ahorcado</h1>
+                <h4 class="mb-4">¿Como jugar?</h4>
+                <p>- El ahorcado es un juego en el que tenes que adiviniar la palabra antes de que ahorquen al
+                    personaje.
+                </p>
+                <p>- Puedes fallar hasta 5 veces antes de que se muera el personaje.</p>
+                <p>- Completa en el cuadro de texto con la palabra que quieres ingresar y luego presiona Enter o el
+                    boton
+                    intentar.</p>
+                <p>- Para empezar a jugar presiona el boton "Comenzar a jugar".</p>
+                <button class="btn btn-danger mt-2" (click)="EmpiezaAJugar()">Comenzar a jugar</button>
+            </div>
+            <div class="row" *ngIf="empiezaAJugar == true">
+                <p>Ahoracado</p>
+            </div>
+        </div>
+        <div class="col-4">
+            <p>Puntajes mas altos</p>
+        </div>
+    </div>
+    <div class="games row" *ngIf="this.juegoSeleccionado == 2 ">
+        <div class="col-8">
+            <div class="row" *ngIf="empiezaAJugar == false">
+                <h1 class="mb-4">Mayor o Menor</h1>
+                <h4 class="mb-4">¿Como jugar?</h4>
+                <p>- El Mayor o menor es un juego en el que hay que predecir si la siguiente carta es mayor o
+                    menor que la carta que ves.</p>
+                <p>- Tienes un solo intento y si fallas el contador de puntos empezara devuelta.</p>
+                <p>- Para jugar presiona en alguno de los botones (Mayor o Menor) que apareceran en pantalla.
+                </p>
+                <p>- Para empezar a jugar presiona el boton "Comenzar a jugar".</p>
+                <button class="btn btn-danger mt-2" (click)="EmpiezaAJugar()">Comenzar a jugar</button>
+            </div>
+            <div class="row" *ngIf="empiezaAJugar == true">
+                <p>Mayor o menor</p>
+            </div>
+        </div>
+        <div class="col-4">
+            <p>Puntajes mas altos</p>
+        </div>
+    </div>
+    <div class="games row" *ngIf="this.juegoSeleccionado == 3 ">
+        <div class="col-8">
+            <div class="row" *ngIf="empiezaAJugar == false">
+                <h1 class="mb-4">Preguntados</h1>
+                <h4 class="mb-4">¿Como jugar?</h4>
+                <p>- El preguntados es un juego en el que tenes que responder las las preguntas que apareceran en
+                    pantalla</p>
+                <p>- Tienes un solo intento y 30 segundos y si fallas el contador de puntos empezara devuelta.</p>
+                <p>- Para responder presiona en cualquiera de las 4 respuestas que apareceran en pantalla.
+                </p>
+                <p>- Para empezar a jugar presiona el boton "Comenzar a jugar".</p>
+                <button class="btn btn-danger mt-2" (click)="EmpiezaAJugar()">Comenzar a jugar</button>
+            </div>
+            <div class="row" *ngIf="empiezaAJugar == true">
+                <app-preguntados></app-preguntados>
+            </div>
+        </div>
+        <div class="col-4">
+            <p>Puntajes mas altos</p>
         </div>
     </div>
 </div>

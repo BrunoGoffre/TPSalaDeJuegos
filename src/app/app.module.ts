@@ -19,6 +19,7 @@ import { FormsModule } from "@angular/forms"
 import { AngularFireModule } from '@angular/fire/compat';
 import { ChatComponent } from './pages/chat/chat.component';
 import { HttpClientModule } from '@angular/common/http';
+import { PreguntadosComponent } from './components/preguntados/preguntados.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { HttpClientModule } from '@angular/common/http';
     FooterComponent,
     GamesComponent,
     RegisterComponent,
-    ChatComponent
+    ChatComponent,
+    PreguntadosComponent
   ],
   imports: [
     BrowserModule,
