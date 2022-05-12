@@ -7,11 +7,11 @@ import { Observable } from 'rxjs';
 })
 export class PreguntadosService {
 
-  private readonly URLPreguntas = "https://opentdb.com/api.php?amount=1&category=27&difficulty=easy&type=multiple";
+  private readonly URLPreguntas = "https://opentdb.com/api.php?amount=1&category=";
 
   constructor(private http: HttpClient) { }
 
-  GetPreguntas(): Observable<any> {
-    return this.http.get(this.URLPreguntas);
+  GetPreguntas(categoria: string): Observable<any> {
+    return this.http.get(this.URLPreguntas + categoria + "&difficulty=easy&type=multiple");
   }
 }

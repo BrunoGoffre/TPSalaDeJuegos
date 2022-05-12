@@ -1,27 +1,39 @@
 <div class="container">
     <div class="row text-center">
         <div class="pregunta_container">
-            <div *ngIf="esperando == true">
-                <img src="../../../assets/loading-cargando.gif" alt="">
+            <div class="Category-selector row" *ngIf="categoria == null; else Juego">
+                <h3>Elije una categoria para jugar</h3>
+                <button class="btn btn-secondary col-5 m-1" value="21" (click)="getCategoria($event)">Deportes</button>
+                <button class="btn btn-secondary col-5 m-1" value="22" (click)="getCategoria($event)">Geografia</button>
+                <button class="btn btn-secondary col-5 m-1" value="23" (click)="getCategoria($event)">Historia</button>
+                <button class="btn btn-secondary col-5 m-1" value="25" (click)="getCategoria($event)">Arte</button>
+                <button class="btn btn-secondary col-5 m-1" value="17" (click)="getCategoria($event)">Ciencias
+                    Naturales</button>
+                <button class="btn btn-secondary col-5 m-1" value="9" (click)="getCategoria($event)">Conocimiento
+                    general</button>
             </div>
-            <div class="game_container" *ngIf="perdio == false; else CartelPerdio ">
-                <div class="pregunta" *ngIf="esperando == false">
-                    <div class="pregunta row">
-                        <p class="pregunta col-10">{{pregunta.question}}</p>
-                        <p class="col-2">{{Puntaje}}</p>
-                    </div>
-                    <div class="row">
-                        <div class="respuestas col-3 " *ngFor="let item of pregunta.incorrect_answers">
-                            <button class="btn btn-primary" value="{{item}}"
-                                (click)="isCorrect($event)">{{item}}</button>
+            <ng-template #Juego>
+                <div class="game_playing" *ngIf="perdio == false; else CartelPerdio ">
+                    <div class="pregunta">
+                        <div class="pregunta row mb-3">
+                            <h3 class="pregunta col-10">{{pregunta.question}}</h3>
+                            <h1 class="col-2">{{Puntaje}}</h1>
+                        </div>
+                        <div class="row">
+                            <div class="respuestas col-3 " *ngFor="let item of pregunta.incorrect_answers">
+                                <button class="btn btn-primary" value="{{item}}"
+                                    (click)="isCorrect($event)">{{item}}</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <ng-template class="CartelPerdio" #CartelPerdio>
-                <h1>Perdiste!!</h1>
-                <h3>Puntaje: {{Puntaje}}</h3>
-                <button class="btn btn-secondary" (click)="IntentarOtraVez()">Intentar otra vez</button>
+                <ng-template class="CartelPerdio" #CartelPerdio>
+                    <h1>Perdiste!!</h1>
+                    <h3>Puntaje: {{Puntaje}}</h3>
+                    <button class="btn btn-secondary col-12 m-1" (click)="IntentarOtraVez()">Intentar otra vez</button>
+                    <button class="btn btn-secondary col-12 m-1" (click)="ElejirOtraCategoria()">Elejir otra
+                        categoria</button>
+                </ng-template>
             </ng-template>
         </div>
     </div>
