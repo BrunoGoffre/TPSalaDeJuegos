@@ -55,6 +55,7 @@ export class PreguntadosComponent implements OnInit {
 
   ElejirOtraCategoria() {
     this.pregunta = new Pregunta("", "", "", "", "", []);
+    this.perdio = false;
     this.categoria = null;
     this.Puntaje = 0;
   }
