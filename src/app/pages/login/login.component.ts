@@ -36,14 +36,16 @@ export class LoginComponent implements OnInit {
                 })
               })
             }
+            console.log('Sing In Exitoso: ', res);
           })
-          console.log('Sing In Exitoso: ', res);
-          this.router.navigateByUrl("/home");
         });
       }
       catch (error) {
         console.log('Error en logeo', error);
       }
+    }
+    if (this.auth.username.value != "") {
+      this.router.navigateByUrl("/home");
     }
 
   }
