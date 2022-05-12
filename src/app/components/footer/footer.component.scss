@@ -1,13 +1,12 @@
 .footer-container {
-    position: relative;
+    position: sticky;
     width: 100vw;
     bottom: 0;
     min-width: 100vh;
-    margin-top: 64px;
+    min-height: 100%;
+    margin-top: 90px;
 }
 
 .main {
     background-color: rgb(196, 196, 196);
 }
-
-.buttons {}

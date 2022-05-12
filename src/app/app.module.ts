@@ -20,6 +20,8 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { ChatComponent } from './pages/chat/chat.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PreguntadosComponent } from './components/preguntados/preguntados.component';
+import { AhorcadoComponent } from './components/ahorcado/ahorcado.component';
+import { SnakeComponent } from './components/snake/snake.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { PreguntadosComponent } from './components/preguntados/preguntados.compo
     GamesComponent,
     RegisterComponent,
     ChatComponent,
-    PreguntadosComponent
+    PreguntadosComponent,
+    AhorcadoComponent,
+    SnakeComponent
   ],
   imports: [
     BrowserModule,

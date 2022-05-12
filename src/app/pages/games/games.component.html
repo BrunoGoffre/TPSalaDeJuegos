@@ -19,6 +19,12 @@
             </button>
         </div>
     </div>
+    <div class="box-sopa row">
+        <button class="btn" (click)="AbrirJuegoSeleccionado(4)" value="4">
+            <img class="img" src=".././../../assets/juego4.jpg" alt="preguntados">
+            <label for="">Sopa de Letras</label>
+        </button>
+    </div>
     <div class="games row" *ngIf="this.juegoSeleccionado == 1 ">
         <div class="col-8">
             <div class="row" *ngIf="empiezaAJugar == false">
@@ -35,7 +41,7 @@
                 <button class="btn btn-danger mt-2" (click)="EmpiezaAJugar()">Comenzar a jugar</button>
             </div>
             <div class="row" *ngIf="empiezaAJugar == true">
-                <p>Ahoracado</p>
+                <app-ahorcado></app-ahorcado>
             </div>
         </div>
         <div class="col-4">
@@ -78,6 +84,27 @@
             </div>
             <div class="row" *ngIf="empiezaAJugar == true">
                 <app-preguntados></app-preguntados>
+            </div>
+        </div>
+        <div class="col-4">
+            <p>Puntajes mas altos</p>
+        </div>
+    </div>
+    <div class="games row" *ngIf="this.juegoSeleccionado == 4 ">
+        <div class="col-8">
+            <div class="row" *ngIf="empiezaAJugar == false">
+                <h1 class="mb-4">Sopa de letras</h1>
+                <h4 class="mb-4">¿Como jugar?</h4>
+                <p>- La sopa de letras es un juego en el que tenes que encontrar las palabras relacionadas a un tema</p>
+                <p>- Tienes cinco minutos para encontrar todas las palabras, al completar el juego se sumara un punto y
+                    empezara otra juego automaticamente</p>
+                <p>- Para seleccionar las opciones simplmente arratra el mouse en la palabra que creas que es.
+                </p>
+                <p>- Para empezar a jugar presiona el boton "Comenzar a jugar".</p>
+                <button class="btn btn-danger mt-2" (click)="EmpiezaAJugar()">Comenzar a jugar</button>
+            </div>
+            <div class="row" *ngIf="empiezaAJugar == true">
+                <app-snake></app-snake>
             </div>
         </div>
         <div class="col-4">
